@@ -1,4 +1,5 @@
 # omr
+Its under devolopment only.Now I have used tesseract for detection and removal of text in the sheet music
 
 An implementation of Optical Music Recognition
 
