@@ -1,14 +1,14 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/core/core.hpp>
-#include <tesseract/baseapi.h>
+//#include <tesseract/baseapi.h>
 #include <iostream>
 #include <vector>
 #include <opencv2/text.hpp>
 
 using namespace cv;
 using namespace std;
-using namespace tesseract;
+//using namespace tesseract;
 using namespace cv::text;
 
 Mat img;
@@ -123,6 +123,12 @@ int main(int argc, char** argv)
     Ptr<OCRTesseract> ocr = OCRTesseract::create();
     //ocr.char_whitelist("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
     ocr->run(gray, output, &boxes, &words, &confidences, OCR_LEVEL_WORD);
+    for(int i=0;i<boxes.size();i++)
+    {
+      //rectangle(img, boxes[i].tl(), boxes[i].br(),Scalar(255,0,0), 2, 8, 0 );
+    }
+    //imshow("simply tesseract",img);
+    //waitKey(0);
     Scalar color=Scalar(255,0,0);
     /*for (int i=0;i<boxes.size();i++)
     {
@@ -150,7 +156,7 @@ int main(int argc, char** argv)
     {
       //cout<<y_coords[i]<<endl;
       //line(img,Point(0,y_coords[i]),Point(img.cols-1,y_coords[i]),Scalar(255,0,0),4,8,0);
-      rectangle(img,Point(0,y_coords[i]),Point(img.cols,y_coords[i]+box_heights[i]),Scalar(255,255,255),-1,8);
+      rectangle(img,Point(0,y_coords[i]-box_heights[i]/4),Point(img.cols,y_coords[i]+3*box_heights[i]/2),Scalar(255,255,255),-1,8);
     }
     //threshold(gray,gray, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
     /*TessBaseAPI ocr;
