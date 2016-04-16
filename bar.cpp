@@ -173,7 +173,7 @@ int main(int argc, char** argv)
 	findContours(cropped, contours, hierarchy,CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE, Point(0, 0) );
 
 	imshow("distance transformed image",drawing);
-
+	imwrite("successfull.jpg",drawing);
   imwrite("horixontal.jpg",abs_grad_x);
 
   /*Mat kernel = Mat::zeros(3,3, CV_32F );
