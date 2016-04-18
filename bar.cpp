@@ -181,7 +181,7 @@ int main(int argc, char** argv)
 		line(src,Point(bar_lines[i],0),Point(bar_lines[i],(src.rows-1)), Scalar(0,0,255), 1, CV_AA);
 	}
   imshow("Bar lines Detected",src);
-	imwrite("bars.jpg",src);
+	imwrite("bars1.jpg",src);
 	//imshow("binary image",img_bw);
 
   //imwrite("horixontal.jpg",abs_grad_x);
