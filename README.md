@@ -1,6 +1,7 @@
 # omr
 Its under devolopment only.Now I have used tesseract for detection and removal of text in the sheet music and have detected the bar-lines inside a stave
 
+![alt tag](https://github.com/Jeevantk/omr/blob/master/bars.jpg?raw=true)
 
 An implementation of Optical Music Recognition
 
