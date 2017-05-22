@@ -49,6 +49,6 @@ int main(int argc,char** argv)
 
   namedWindow("image", WINDOW_NORMAL );
   imshow("image",img);
-  imwrite("lines.jpg",img);
+  //imwrite("lines.jpg",img);
   waitKey(0);
 }
