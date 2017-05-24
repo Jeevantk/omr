@@ -301,13 +301,13 @@ void compute_hog( const vector< Mat > & img_lst, vector< Mat > & gradient_lst, c
 
     vector< Mat >::const_iterator img = img_lst.begin();
     vector< Mat >::const_iterator end = img_lst.end();
-    cout<<"Internal check point 1"<<endl;
+    // cout<<"Internal check point 1"<<endl;
     for( ; img != end ; ++img )
     {
         cvtColor( *img, gray, COLOR_RGB2GRAY );
-        cout<<"Converted to GrayScale"<<endl;
-        hog.compute( gray, descriptors, Size( 5, 5 ), Size( 0, 0 ), location );
-        cout<<"Hog Computed"<<endl;
+        // cout<<"Converted to GrayScale"<<endl;
+        hog.compute( gray, descriptors, Size(8,8), Size( 0, 0 ), location );
+        // cout<<"Hog Computed"<<endl;
         gradient_lst.push_back( Mat( descriptors ).clone() );
 #ifdef _DEBUG
         imshow( "gradient", get_hogdescriptor_visu( img->clone(), descriptors, size ) );
@@ -447,13 +447,13 @@ int main( int argc, char** argv )
     CV_Assert( old < labels.size() );
 
     cout<<"Check Point 2"<<endl;
-    compute_hog( pos_lst, gradient_lst, Size( 30, 60 ) );
+    compute_hog( pos_lst, gradient_lst, Size( 32, 64 ) );
     cout<<"Hog Computed For poitive class"<<endl;
-    compute_hog( neg_lst, gradient_lst, Size( 30, 60 ) );
+    compute_hog( neg_lst, gradient_lst, Size( 32, 64 ) );
 
     train_svm( gradient_lst, labels );
 
-    test_it( Size( 30, 60 ) ); // change with your parameters
+    test_it( Size( 32, 64 ) ); // change with your parameters
 
     return 0;
 }
