@@ -8,3 +8,5 @@ trainHog:
 	g++ -o trainHog ../src/train_HOG.cpp `pkg-config --cflags --libs opencv`
 detectTrebleCleff:
 	g++ -o detectTrebleCleff ../src/trebleCleff.cpp `pkg-config --cflags --libs opencv`
+detectBassCleff:
+	g++ -o detectBassCleff ../src/bassCleff.cpp `pkg-config --cflags --libs opencv`

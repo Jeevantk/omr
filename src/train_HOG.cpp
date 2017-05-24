@@ -337,7 +337,7 @@ void train_svm( const vector< Mat > & gradient_lst, const vector< int > & labels
     svm->train(train_data, ROW_SAMPLE, Mat(labels));
     clog << "...[done]" << endl;
 
-    svm->save( "my_people_detector.yml" );
+    svm->save( "bassCleffDetect.yml" );
 }
 
 void draw_locations( Mat & img, const vector< Rect > & locations, const Scalar & color )
@@ -367,7 +367,7 @@ void test_it( const Size & size )
     vector< Rect > locations;
 
     // Load the trained SVM.
-    svm = StatModel::load<SVM>( "my_people_detector.yml" );
+    svm = StatModel::load<SVM>( "bassCleffDetect.yml" );
     // Set the trained svm to my_hog
     vector< float > hog_detector;
     get_svm_detector( svm, hog_detector );
