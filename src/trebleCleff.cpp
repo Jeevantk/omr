@@ -80,6 +80,8 @@ int main(int argc, char** argv)
     draw_locations( draw, locations, trained );
     namedWindow("Detected Clefs",CV_WINDOW_NORMAL);
     imshow("Detected Clefs",draw);
+    string output= "clefdetect.png";
+    imwrite(output.c_str(),draw);
     waitKey(0);
 
 
