@@ -28,7 +28,7 @@ cd build
 
 there are many other flags which can be given for cmake.Check opencv build instructions for those
 
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -DINSTALL_CREATE_DISTRIB=ON ..
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -DINSTALL_CREATE_DISTRIB=ON -DWITH_QT=ON ..
 
 Use -j(%number of processosors for optimisation)
 

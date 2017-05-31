@@ -1,14 +1,14 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/core/core.hpp>
-//#include <tesseract/baseapi.h>
+#include <tesseract/baseapi.h>
 #include <iostream>
 #include <vector>
 #include <opencv2/text.hpp>
 
 using namespace cv;
 using namespace std;
-//using namespace tesseract;
+using namespace tesseract;
 using namespace cv::text;
 
 Mat img;
@@ -132,7 +132,7 @@ int main(int argc, char** argv)
     // imshow("simply tesseract",img);
     // waitKey(0);
     Scalar color=Scalar(255,0,0);
-    /*for (int i=0;i<boxes.size();i++)
+    for (int i=0;i<boxes.size();i++)
     {
       if (words[i].find_first_not_of(' ') != std::string::npos && confidences[i]>70.0)
       {
@@ -148,7 +148,7 @@ int main(int argc, char** argv)
 
 
       //rectangle(img, boxes[i].tl(), boxes[i].br(), color, 2, 8, 0 );
-    }*/
+    }
     //cout<<number_of_text_lines(boxes,confidences,words)<<endl;
 
     vector<int> y_coords=y_coordinates_of_various_lines_of_text(boxes,confidences,words);
@@ -160,23 +160,23 @@ int main(int argc, char** argv)
       //line(img,Point(0,y_coords[i]),Point(img.cols-1,y_coords[i]),Scalar(255,0,0),4,8,0);
       rectangle(img,Point(0,y_coords[i]-box_heights[i]/4),Point(img.cols,y_coords[i]+3*box_heights[i]/2),Scalar(255,255,255),-1,8);
     }
-    //threshold(gray,gray, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
-    /*TessBaseAPI ocr;
-    ocr.Init(NULL, "eng",OEM_DEFAULT);
-    ocr.SetPageSegMode(PSM_SINGLE_BLOCK);
-    ocr.SetImage((uchar*)gray.data, gray.cols, gray.rows, 1, gray.cols);
+    threshold(gray,gray, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+    // TessBaseAPI ocr;
+    // ocr.Init(NULL, "eng",OEM_DEFAULT);
+    // ocr.SetPageSegMode(PSM_SINGLE_BLOCK);
+    // ocr.SetImage((uchar*)gray.data, gray.cols, gray.rows, 1, gray.cols);
 
-    char* out = ocr.GetUTF8Text();
+    // char* out = ocr.GetUTF8Text();
 
-    cout << out << endl;
-    */
-    /*threshold(gray,gray, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
-    ocr.SetImage((uchar*)gray.data, gray.cols, gray.rows, 1, gray.cols);
-    out = ocr.GetUTF8Text();
-    cout << out << endl;*/
+    // cout << out << endl;
+    
+    // threshold(gray,gray, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+    // ocr.SetImage((uchar*)gray.data, gray.cols, gray.rows, 1, gray.cols);
+    // out = ocr.GetUTF8Text();
+    //cout << out << endl;
     //cout << output <<endl;
-    //imwrite("output1.jpg",img);
-    //waitKey(0);
+    imwrite("output1.jpg",img);
+    waitKey(0);
     namedWindow("lines detected",CV_WINDOW_NORMAL);
     imshow("lines detected",img);
     //imwrite("lines.jpg",img);

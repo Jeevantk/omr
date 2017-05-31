@@ -120,7 +120,7 @@ int main(int argc, char** argv)
 
     namedWindow("lines detected",CV_WINDOW_NORMAL);
     imshow("lines detected",img);
-    //imwrite("lines.jpg",img);
+    imwrite("lines.jpg",img);
     waitKey(0);
     //return 0;
 }
