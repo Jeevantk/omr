@@ -1,0 +1,4 @@
+The current program has been created as a proof of concept that this idea works actually. It cannot be extented at present for images of sheet music taken via a camera. The staff line needs to be aproximately parallel inorder for this to work properly. 
+After completing the website this issue has to be taken care of immediately. Probably finding the orientation of the sheet music and applying appropriate transformations would be sufficeint.
+Also dectecting and removing text has to be accounted for other languages also.
+Clef detections have to be made more accurate and reliable.

@@ -19,7 +19,8 @@ int main(int argc,char** argv)
 
   img=imread(argv[1]);
   src=imread(argv[1],0);
-  threshold(src, img_bw,160, 255,1);
+   //threshold(src, img_bw,180, 255,1);
+  threshold(src, img_bw, 0, 255, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
   namedWindow("Threshold", WINDOW_NORMAL );
   imshow("Threshold",img_bw);
   waitKey(0);
@@ -30,8 +31,7 @@ int main(int argc,char** argv)
 
   for(size_t i=0;i<lines.size();i++)
   {
-  	line( img, Point(lines[i][0], lines[i][1]),
-	Point(lines[i][2], lines[i][3]), Scalar(0,0,255), 3, 8 );
+  	line( img, Point(lines[i][0], lines[i][1]),Point(lines[i][2], lines[i][3]), Scalar(0,0,255),1, 8 );
   }
   
   namedWindow("image", WINDOW_NORMAL );
