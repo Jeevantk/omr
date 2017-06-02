@@ -115,12 +115,12 @@ int main(int argc, char** argv)
     for(int i=0;i<y_coords.size();i++)
     {
 
-      rectangle(img,Point(0,y_coords[i]-box_heights[i]/4),Point(img.cols,y_coords[i]+3*box_heights[i]/2),Scalar(255,255,255),-1,8);
+      rectangle(img,Point(0,y_coords[i]-box_heights[i]/2),Point(img.cols,y_coords[i]+3*box_heights[i]/2),Scalar(255,255,255),-1,8);
     }
 
     namedWindow("lines detected",CV_WINDOW_NORMAL);
     imshow("lines detected",img);
-    imwrite("lines.jpg",img);
+    //imwrite("lines.jpg",img);
     waitKey(0);
     //return 0;
 }
