@@ -2,6 +2,7 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "iostream"
 #include <algorithm>
+#include "fstream"
 
 using namespace cv;
 using namespace std;
@@ -99,7 +100,14 @@ int main(int argc,char** argv)
   // 	cout<<y_coordinates[i]<<endl;
   // }
 
-  cout<<"Saving individal staves as images with an accompanying text file detailing the positions of the detected line positions "<<endl;
+  cout<<"Saving individal staves as images "<<endl;
+
+  ofstream outfile;
+
+  for (size_t i=0;i<contours.size();i++)
+  {
+
+  }
   imshow("image",img);
   imwrite("Show.jpg",img);
   waitKey(0);
