@@ -2,3 +2,6 @@ The current program has been created as a proof of concept that this idea works 
 After completing the website this issue has to be taken care of immediately. Probably finding the orientation of the sheet music and applying appropriate transformations would be sufficeint.
 Also dectecting and removing text has to be accounted for other languages also.
 Clef detections have to be made more accurate and reliable.
+
+
+While cropping out the stave an additional component can be added inorder to improve the accuracy. The heights of the detected staves can be used to further remove a noise in the form of undetected text from tesseract.
