@@ -39,7 +39,8 @@ int main(int argc,char** argv)
   	y_coordinates.push_back((lines[i][1]+lines[i][3])/2);
   	//cout<<y_coordinates[i]<<endl;
   }
-  cout<<CV_PI<<endl;
+
+  
   imshow("image",img);
   waitKey(0);
 

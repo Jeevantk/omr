@@ -38,6 +38,11 @@ drawstavelines:
 detectnotehead:
 	mkdir -p build
 	g++ -o build/detectnotehead src/detectnotehead.cpp `pkg-config --cflags --libs opencv`
+removestafflines:
+	mkdir -p build
+	g++ -o build/removestafflines src/removestafflines.cpp `pkg-config --cflags --libs opencv`
+
+
 
 clean:
 	rm -rf build/
