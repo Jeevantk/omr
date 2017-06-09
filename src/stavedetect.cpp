@@ -7,7 +7,6 @@
 using namespace cv;
 using namespace std;
 
-RNG rng(12345);
 
 int main(int argc,char** argv)
 {
@@ -72,8 +71,8 @@ int main(int argc,char** argv)
   for(size_t i=0;i<contours.size();i++)
   {
   	Scalar color = Scalar(255,0,0);
-    rectangle( img, boundRect[i].tl(), boundRect[i].br(), color, 3, 8, 0 );
-    stave_heights.push_back(boundingRect.height)
+    //rectangle( img, boundRect[i].tl(), boundRect[i].br(), color, 3, 8, 0 );
+    stave_heights.push_back(boundRect[i].height);
     // cout<<boundRect[i].width<<endl;
     // cout<<boundRect[i].height<<endl;
   }
@@ -100,15 +99,46 @@ int main(int argc,char** argv)
   // 	cout<<y_coordinates[i]<<endl;
   // }
 
+
+//The image should be straight by the time it reaches this part of the program. All the work in straightening 
+// has to be done before this
+
+
+
+
   cout<<"Saving individal staves as images "<<endl;
 
   ofstream outfile;
 
-  for (size_t i=0;i<contours.size();i++)
-  {
-
-  }
   imshow("image",img);
+  
+  for (int i=0;i<contours.size();i++)
+  {
+  	Rect roi;
+  	Point top;
+  	Point bottom;
+  	top=boundRect[i].tl();
+  	bottom=boundRect[i].br();
+  	int height=boundRect[i].height;
+  	int width=boundRect[i].width;
+  	top.x=(top.x-height)>0 ? top.x-height : 0 ;
+  	top.y=(top.y-height/2);
+  	bottom.x=(bottom.x+height)<img.cols ? bottom.x+height: img.cols-1;
+  	bottom.y=bottom.y+height/2;
+  	roi.x=top.x;
+  	roi.y=top.y;
+  	roi.width=bottom.x-top.x;
+  	roi.height=bottom.y-top.y;
+  	cout<<top.y<<endl;
+  	Mat stave=img(roi);
+  	imshow("Cropped",stave);
+  	ostringstream convert;
+  	convert << i; 
+  	string name=convert.str()+".jpg";
+  	imwrite(name.c_str(),stave);
+  	waitKey(0);
+  }
+  
   imwrite("Show.jpg",img);
   waitKey(0);
 }

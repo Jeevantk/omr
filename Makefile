@@ -29,6 +29,15 @@ removeText:
 detectstaves:
 	mkdir -p build
 	g++ -o build/stavedetect src/stavedetect.cpp `pkg-config --cflags --libs opencv`
+detectbarlines:
+	mkdir -p build
+	g++ -o build/barlinedetect src/detectBarlines.cpp `pkg-config --cflags --libs opencv`
+drawstavelines:
+	mkdir -p build
+	g++ -o build/drawStavelines src/drawStavelines.cpp `pkg-config --cflags --libs opencv`
+detectnotehead:
+	mkdir -p build
+	g++ -o build/detectnotehead src/detectnotehead.cpp `pkg-config --cflags --libs opencv`
 
 clean:
 	rm -rf build/

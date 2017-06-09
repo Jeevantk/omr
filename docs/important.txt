@@ -5,3 +5,5 @@ Clef detections have to be made more accurate and reliable.
 
 
 While cropping out the stave an additional component can be added inorder to improve the accuracy. The heights of the detected staves can be used to further remove a noise in the form of undetected text from tesseract.
+
+Padd the original image with white zeros on all sides initially itself , to avoid further problems in stave extraction
