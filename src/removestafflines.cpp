@@ -74,7 +74,7 @@ int main(int argc,char** argv)
 
 
   vector<Vec4i> small_lines;
-  HoughLinesP(img_bw,small_lines,1,CV_PI/180,80,cvRound(2*lineDistance),50);
+  HoughLinesP(img_bw,small_lines,1,CV_PI/180,200,cvRound(2*lineDistance),10);
 
   // vector<Vec2f> small_lines;
 
@@ -82,7 +82,7 @@ int main(int argc,char** argv)
 
   cout<<"Removing vertical Lines"<<endl;
 
-  for(size_t i=0;i<lines.size();i++)
+  for(size_t i=0;i<small_lines.size();i++)
   {
   	line( img, Point(small_lines[i][0], small_lines[i][1]),Point(small_lines[i][2], small_lines[i][3]),Scalar(0,0,255),1, 8 );
   	//line( img, Point(lines[i][0], lines[i][1]),Point(lines[i][2], lines[i][3]),Scalar(0,0,255),1, 8 );
